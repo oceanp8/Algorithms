@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Algorithms {
     private static File f;
@@ -15,6 +16,7 @@ public class Algorithms {
         int small = small();
         int sum = sum();
         int average = average();
+        ArrayList<Integer> mode = mode();
         System.out.println("Odds: " + odds);
         System.out.println("Evens: " + evens);
         System.out.println("Double Digits: " + doubleDigits);
@@ -23,8 +25,8 @@ public class Algorithms {
         System.out.println("The smallest number is: " + small);
         System.out.println("The sum is: " + sum);
         System.out.println("The average is: " + average);
+        System.out.println("The mode is: " + mode);
     }
-
     public static int odds() throws FileNotFoundException {
         Scanner s = new Scanner(f);
         int odds = 0;
@@ -110,4 +112,39 @@ public class Algorithms {
         s.close();
         return average;
     }
+
+    public static ArrayList<Integer> mode() throws FileNotFoundException {
+        Scanner s = new Scanner(f);
+        ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<Integer> frequencies = new ArrayList<>();
+        ArrayList<Integer> mode = new ArrayList<>();
+        int maxFrequency = 0;
+    
+        // Read numbers from the file
+        while (s.hasNextInt()) {
+            int num = s.nextInt();
+            if (numbers.contains(num)) {
+                int index = numbers.indexOf(num);
+                frequencies.set(index, frequencies.get(index) + 1);
+            } else {
+                numbers.add(num);
+                frequencies.add(1);
+            }
+        }
+    
+        for (int freq : frequencies) {
+            if (freq > maxFrequency) {
+                maxFrequency = freq;
+            }
+        }
+
+        for (int i = 0; i < numbers.size(); i++) {
+            if (frequencies.get(i) == maxFrequency) {
+                mode.add(numbers.get(i));
+            }
+        }
+        s.close();
+        return mode;
+    }
 }
+    
