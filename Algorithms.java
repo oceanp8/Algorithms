@@ -15,7 +15,7 @@ public class Algorithms {
         int greatest = greatest();
         int small = small();
         int sum = sum();
-        int average = average();
+        double average = average();
         ArrayList<Integer> mode = mode();
         System.out.println("Odds: " + odds);
         System.out.println("Evens: " + evens);
@@ -92,18 +92,18 @@ public class Algorithms {
     }
     public static int sum() throws FileNotFoundException {
         Scanner s = new Scanner(f);
-        int sum = 0;
+        int sum = 1000;
         while (s.hasNext()){
             sum = s.nextInt() + sum;
         }
         s.close();
         return sum;
     }
-    public static int average() throws FileNotFoundException {
+    public static double average() throws FileNotFoundException {
         Scanner s = new Scanner(f);
-        int average = 0;
-        int newSum = 0;
-        int count =0;
+        double average = 0;
+        double newSum = 0;
+        double count =0;
         while (s.hasNext()){
             newSum = newSum + s.nextInt();
             count ++;
@@ -132,7 +132,7 @@ public class Algorithms {
             }
         }
     
-        for (int freq : frequencies) {
+        for (int freq = 0; freq<) {
             if (freq > maxFrequency) {
                 maxFrequency = freq;
             }
