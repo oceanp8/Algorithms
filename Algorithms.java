@@ -82,7 +82,7 @@ public class Algorithms {
     }
     public static int small() throws FileNotFoundException {
         Scanner s = new Scanner(f);
-        int small = 0;
+        int small = 1000;
         while (s.hasNext()){
             if (s.nextInt()<small)
             small = s.nextInt();
@@ -92,7 +92,7 @@ public class Algorithms {
     }
     public static int sum() throws FileNotFoundException {
         Scanner s = new Scanner(f);
-        int sum = 1000;
+        int sum = 0;
         while (s.hasNext()){
             sum = s.nextInt() + sum;
         }
@@ -132,7 +132,7 @@ public class Algorithms {
             }
         }
     
-        for (int freq = 0; freq<) {
+        for (int freq: frequencies) {
             if (freq > maxFrequency) {
                 maxFrequency = freq;
             }
